@@ -17,20 +17,35 @@ qualunque (uno nuovo) se e solo se c’è un valore booleano isLuisAntipatico = 
 
 package oopFestaFerragnez;
 
+import java.util.Scanner;
+
 public class Party {
 	String[] invitati;
+	
+	Scanner input = new Scanner(System.in);
 	
 	public Party(String[] invitati) {
 		this.invitati = invitati;
 	}
 	
-	public void accettaOspite(String nome) {
-		System.out.println("Ti chiami " + nome + " eh... Fammi controllare se sei in lista...");
+	public void accettaOspite(boolean isLuisAntipatico) {
+
+		System.out.println("Come ti chiami? ");
+		String ospite = input.nextLine();
+		
+		while (ospite.equals("Luis")) {
+			System.out.println("Mi spiace Luis, non posso farti entrare, non sei il benvenuto.");
+			System.out.println("Come ti chiami? ");
+			ospite = input.nextLine();
+		}
+		
+		
+		System.out.println("Ti chiami " + ospite + " eh... Fammi controllare se sei in lista...");
 		boolean isInvitato = false;
 		
 		for (String invitato : invitati)
 		{
-			if (invitato.equals(nome)) {
+			if (invitato.equals(ospite)) {
 				isInvitato = true;
 				}
 			}
@@ -42,5 +57,4 @@ public class Party {
 		 }
 			
 	}
-		
 }

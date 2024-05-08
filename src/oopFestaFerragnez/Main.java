@@ -11,11 +11,14 @@ public class Main {
 
 					Party festaFerragnez = new Party(invitatiFerragnez);
 			
+			boolean isLuisAntipatico = false;
+			System.out.println("Fedez ha gia' litigato con Luis? ");
+				String litigio = input.nextLine();
+				if (litigio.equals("si")) {
+					isLuisAntipatico = true;
+				}			
 			
-			System.out.println("Come ti chiami?");
-			String ospite = input.nextLine();
-			
-			festaFerragnez.accettaOspite(ospite);
+			festaFerragnez.accettaOspite(isLuisAntipatico);
 			
 		}
 }
